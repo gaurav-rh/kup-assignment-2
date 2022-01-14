@@ -5,10 +5,15 @@ import org.scalatest.flatspec.AnyFlatSpec
 class LoggerAssTest extends AnyFlatSpec {
   "a logger " should "be valid" in {
     val loggerAssignment = new LoggerAssignment()
-    assert(loggerAssignment.printLog("knoldus","company") == "[company]:knoldus")
+    assert(loggerAssignment.printLog("knoldus", "company") == "[company]:knoldus")
   }
   "a logger with no INFO" should "be valid" in {
     val loggerAssignment = new LoggerAssignment()
     assert(loggerAssignment.printLog("knoldus") == "[INFO]:knoldus")
+  }
+
+  "a logger " should "be Invalid" in {
+    val loggerAssignment = new LoggerAssignment()
+    assert(!(loggerAssignment.printLog("knoldus", "company") == "[knoldus] :company"))
   }
 }
